@@ -69,6 +69,9 @@ git submodule update
 
 ---
 
+For dependencies, python 3.8 should be used
+`pip install -r requirements.txt`
+
 ### 1. VAE-GAN
 
 #### 1.0. Download the dataset. 
