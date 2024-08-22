@@ -72,6 +72,11 @@ git submodule update
 For dependencies, python 3.8 should be used
 `pip install -r requirements.txt`
 
+When facing problem with `ERROR: Failed building wheel for webrtcvad`
+
+do pip install webrtcvad-wheels
+https://github.com/wiseman/py-webrtcvad/issues/40
+
 ### 1. VAE-GAN
 
 #### 1.0. Download the dataset. 
