@@ -165,6 +165,11 @@ cd ../wavenet_vocoder/egs/gaussian
 spk="[name]_[id]" ./run.sh --stage 1 --stop-stage 1
 ```
 
+If the above command doesn't work, you can try this one
+```
+python preprocess.py wavallin data/urmp_wavenet_1/train_no_dev dump/urmp_all/logmelspectrogram/org/train_no_dev --hparams=global_gain_scale=0.55 --preset=conf/urmp.json
+```
+
 - For two speakers ids this would be either ```1``` or ```2```. If you want to train all, make [id] as "_all" or something
 - You need to run the .sh command for each target timbre if you want to train specific vocoders.
 - Note that alternate to specific vocoders train general vocoders (a vocoder for all speakers instead of for each speaker). For this prepare training and test data in the previous step from all speakers in one dataset.
@@ -173,6 +178,12 @@ spk="[name]_[id]" ./run.sh --stage 1 --stop-stage 1
 
 ```
 spk="[name]_[id]" hparams=conf/[name].json ./run.sh --stage 2 --stop-stage 2 
+```
+
+If the above command doesn't work, try this
+
+```
+CUDA_VISIBLE_DEVICES=1 python train.py --dump-root=dump/urmp_all/logmelspectrogram/org/ --checkpoint-dir=urmp_wavenet --log-event-path=tensorboard=train_wavenet_xxx --preset=conf/urmp.json
 ```
 
 - Just like preprocessing, you need to run this for each target timbre for specific vocoding.
